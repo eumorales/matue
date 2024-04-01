@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="icone.png" type="image/x-icon"> 
+
+    <title>Show</title>
+
+    <style>
+
+        body {
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            padding: 0;
+            background-image: url('matue.gif'); 
+            background-size: cover; 
+            font-family: "Helvetica Neue", "Open Sans", helvetica, arial, sans-serif;  
+        }
+        
+        .show {  
+            font-size: 3em;
+            font-weight: 100;
+            color: white;
+            text-shadow: 0 0 20px #8d2bbb;
+        }
+        
+        div {
+            display: inline-block;
+            min-width: 90px;
+        }
+        
+        span {
+            color: #B1CDF1;
+            display: block;
+            font-size: .35em;
+            font-weight: 400;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="show" id="show">Carregando...</div>
+
+    <script>
+
+        function dataShow() {
+            let future = Date.parse("August 16, 2024 19:00:00");
+            let now = new Date();
+            let diff = future - now;
+          
+            let dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            let minutos = Math.floor((diff / (1000 * 60)) % 60);
+            let segundos = Math.floor((diff / 1000) % 60);
+          
+            document.getElementById("show").innerHTML =
+                '<div>' + dias + '<span>dias</span></div>' +
+                '<div>' + horas + '<span>horas</span></div>' +
+                '<div>' + minutos + '<span>minutos</span></div>' +
+                '<div>' + segundos + '<span>segundos</span></div>';
+        }
+        setInterval(dataShow, 1000);
+
+    </script>
+</body>
+
+</html>
